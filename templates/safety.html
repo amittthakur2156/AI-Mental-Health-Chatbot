@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Safety Plan · CalmMind AI{% endblock %}
+{% block content %}
+<section class="section-head safety-hero">
+  <div>
+    <p class="eyebrow">Phase 3 Safety System</p>
+    <h1>Personal Safety Plan</h1>
+    <p>Prepare clear steps for moments of high distress. This page helps users move from panic to immediate, safe actions.</p>
+  </div>
+  <div class="crisis-mini-card">
+    <strong>Immediate danger?</strong>
+    <span>Call 112 or contact someone nearby now.</span>
+  </div>
+</section>
+
+<section class="grid-2 align-start">
+  <article class="panel crisis-check-panel">
+    <h2>Quick Crisis Check</h2>
+    <p class="muted-small">Use this to test the safety engine or help a user answer: “Am I safe right now?”</p>
+    <label class="field-label">Are you safe right now?</label>
+    <select id="safeStatus" class="input-like">
+      <option value="yes">Yes, I am safe</option>
+      <option value="not_sure">Not sure</option>
+      <option value="no">No, I may be unsafe</option>
+    </select>
+    <label class="field-label">Trusted person / contact</label>
+    <input id="checkinContact" placeholder="Name or phone number" />
+    <label class="field-label">Current place</label>
+    <input id="checkinLocation" placeholder="Home, hostel, college, public place..." />
+    <label class="field-label">What is happening?</label>
+    <textarea id="crisisText" placeholder="Write what the user said or how they feel..."></textarea>
+    <button id="runCrisisCheckBtn" class="primary-btn full">Run Safety Check</button>
+    <div id="crisisResult" class="result-box hidden"></div>
+  </article>
+
+  <article class="panel resources-panel">
+    <h2>Emergency Resources</h2>
+    <div id="resourceList" class="resource-list"></div>
+    <div class="safety-note">
+      <strong>Important:</strong> CalmMind is a supportive AI companion. It is not a replacement for doctors, therapists, emergency services, or crisis helplines.
+    </div>
+  </article>
+</section>
+
+<section class="panel safety-panel enhanced-safety-plan">
+  <div class="panel-title-row">
+    <div>
+      <h2>My Safety Plan</h2>
+      <p class="muted-small">Fill these fields before a crisis. The app will show this plan during high-risk moments.</p>
+    </div>
+    <div class="completion-card">
+      <strong id="planCompletion">0%</strong>
+      <span>complete</span>
+    </div>
+  </div>
+  <div class="progress-track"><div id="planProgress" class="progress-fill" style="width:0%"></div></div>
+
+  <div class="form-grid safety-form-grid">
+    <label>Warning signs<textarea id="warningSigns" placeholder="Thoughts, feelings, body signs..."></textarea></label>
+    <label>Coping actions<textarea id="copingActions" placeholder="Breathing, grounding, walk, music..."></textarea></label>
+    <label>Trusted contacts<textarea id="trustedContacts" placeholder="Names and phone numbers..."></textarea></label>
+    <label>Safe places<textarea id="safePlaces" placeholder="Room, friend's house, public safe place..."></textarea></label>
+    <label>Environment safety<textarea id="environmentSafety" placeholder="Move away from harmful objects, stay near people..."></textarea></label>
+    <label>Reasons to keep going<textarea id="reasonsToLive" placeholder="People, goals, dreams, pets, faith, future plans..."></textarea></label>
+    <label>Professional support<textarea id="professionalSupport" placeholder="Counsellor, doctor, mentor, Tele-MANAS..."></textarea></label>
+    <label>Crisis steps<textarea id="crisisSteps" placeholder="1) Move safe. 2) Contact person. 3) Call 112 if danger..."></textarea></label>
+    <label class="full-span">Emergency notes<textarea id="emergencyNotes" placeholder="Emergency: 112; Tele-MANAS: 14416..."></textarea></label>
+  </div>
+  <div class="safety-actions">
+    <button id="saveSafetyBtn" class="primary-btn">Save Safety Plan</button>
+    <button id="fillTemplateBtn" class="secondary-btn">Fill Example Template</button>
+  </div>
+  <div id="safetyValidation" class="muted-small"></div>
+</section>
+{% endblock %}

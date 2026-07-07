@@ -1,0 +1,42 @@
+CalmMind AI Final Complete Project
+==================================
+
+1) Extract this zip.
+2) Open the project folder in VS Code.
+3) Create venv:
+   python -m venv venv
+   venv\Scripts\activate
+
+4) Install requirements:
+   pip install -r requirements.txt
+
+5) Create env:
+   copy .env.example .env
+
+6) Add your Groq key in .env:
+   GROQ_API_KEY=your_new_key_here
+
+7) Run:
+   python app.py
+
+8) Open:
+   http://127.0.0.1:5000
+
+Important pages:
+- /chat       : multilingual text + mic AI chat
+- /connect    : call someone / v-call support room
+- /dashboard  : advanced mood analytics
+- /journal    : journal
+- /safety     : safety plan + crisis resources
+- /admin      : admin/research analytics
+
+Voice rule:
+The browser voice speaks exactly the AI reply returned by the backend.
+It does not generate a separate spoken answer.
+
+Call/V-Call:
+- /connect lets user call emergency/trusted contacts using tel: links.
+- /connect can create a video room link to share with someone.
+- Twilio AI phone call demo route: /twilio/voice?language=hinglish
+
+Do not upload .env, venv, or database files to GitHub.

@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% block title %}Professional Chat · CalmMind AI{% endblock %}
+{% block content %}
+<section class="phase-banner final-banner">
+  <div>
+    <span class="eyebrow">Final Build Active</span>
+    <h1>Professional Multilingual AI Support Chat</h1>
+    <p>Text, mic voice, exact voice reply, advanced AI brain, crisis safety, memory, RAG knowledge, and direct call/video support access.</p>
+  </div>
+  <div class="phase-actions">
+    <a class="secondary-btn" href="/connect">Call / V-Call</a>
+    <a class="ghost-btn" href="/dashboard">Dashboard</a>
+    <a class="ghost-btn" href="/safety">Safety Plan</a>
+  </div>
+</section>
+
+<section class="app-layout pro-chat-layout">
+  <aside class="side-panel sessions-panel">
+    <div class="panel-title-row">
+      <div>
+        <h2>Conversations</h2>
+        <small id="sessionCount">0 sessions</small>
+      </div>
+      <button id="newSessionBtn" class="icon-btn" type="button" title="New session">＋</button>
+    </div>
+
+    <div class="session-search-wrap">
+      <input id="sessionSearch" type="search" placeholder="Search sessions..." autocomplete="off" />
+    </div>
+
+    <div id="sessionList" class="session-list professional-list">
+      <div class="empty-state">Loading sessions...</div>
+    </div>
+
+    <div class="sidebar-actions">
+      <button id="renameSessionBtn" class="ghost-btn full" type="button">Rename Current</button>
+      <button id="deleteSessionBtn" class="ghost-btn full danger-text" type="button">Delete Current</button>
+      <button id="clearHistoryBtn" class="ghost-btn full danger-text" type="button">Clear All History</button>
+    </div>
+
+    <div class="tip-card privacy-card">
+      <h4>Privacy-first demo</h4>
+      <p>Local demo mode stores chats in SQLite. User can export/delete data from APIs, and high-risk data is handled with safety protocol.</p>
+    </div>
+  </aside>
+
+  <section class="chat-panel professional-chat-panel">
+    <div class="chat-header pro-chat-header">
+      <div>
+        <div class="session-kicker">Current session</div>
+        <h1 id="currentSessionTitle">New Support Session</h1>
+        <p id="currentSessionMeta">Multilingual professional support with AI brain analysis and safety checks.</p>
+      </div>
+      <div class="badge-row analysis-badges">
+        <span id="emotionBadge" class="badge">emotion: neutral</span>
+        <span id="intentBadge" class="badge">intent: support</span>
+        <span id="moodBadge" class="badge">mood: 5/10</span>
+        <span id="riskBadge" class="badge safe">risk: low</span>
+      </div>
+    </div>
+
+    <div class="control-strip language-strip">
+      <label for="languageSelect"><strong>Conversation language</strong></label>
+      <select id="languageSelect" aria-label="Conversation language">
+        <option value="auto">Auto Detect</option>
+        <option value="hinglish" selected>Hinglish</option>
+        <option value="hindi">Hindi</option>
+        <option value="english">English</option>
+        <option value="punjabi">Punjabi</option>
+        <option value="marathi">Marathi</option>
+        <option value="telugu">Telugu</option>
+        <option value="urdu">Urdu</option>
+        <option value="french">French</option>
+        <option value="chinese">Chinese</option>
+      </select>
+      <span id="languageHint" class="muted-small">Voice STT/TTS will use this language. The bot will speak exactly the text it generated.</span>
+    </div>
+
+    <div class="chat-notice">
+      <strong>CalmMind AI is a wellness companion.</strong>
+      It supports reflection and coping, but it does not replace a therapist, doctor, crisis line, or emergency service.
+    </div>
+
+    <div id="chatMessages" class="chat-messages pro-messages">
+      <div class="message bot welcome-message">
+        <p>Hi, main CalmMind AI hoon. Tum text ya mic se baat kar sakte ho. Aaj tum kaisa feel kar rahe ho?</p>
+        <div class="message-meta">CalmMind · supportive mode</div>
+      </div>
+    </div>
+
+    <div class="quick-prompts" aria-label="Quick prompts">
+      <button class="quick-chip" data-prompt="Mujhe exam aur project deadline ka stress ho raha hai.">Exam stress</button>
+      <button class="quick-chip" data-prompt="Mujhe anxiety feel ho rahi hai, mujhe calm karne me help karo.">Anxiety help</button>
+      <button class="quick-chip" data-prompt="Mujhe raat ko neend nahi aati, sleep routine banao.">Sleep help</button>
+      <button class="quick-chip" data-prompt="Mujhe motivation aur focus plan chahiye.">Motivation</button>
+    </div>
+
+    <div class="composer pro-composer">
+      <button id="micBtn" class="round-btn mic-button" title="Speak" type="button">🎙️</button>
+      <textarea id="messageInput" rows="2" placeholder="Type your message... Shift+Enter for new line"></textarea>
+      <button id="sendBtn" class="primary-btn send-button" type="button">Send</button>
+    </div>
+
+    <div class="voice-controls pro-voice-controls">
+      <button id="speakToggle" class="ghost-btn" type="button">Voice Reply: On</button>
+      <button id="stopSpeakBtn" class="ghost-btn" type="button">Stop Speaking</button>
+      <button id="repeatLastReplyBtn" class="ghost-btn" type="button">Repeat Last Reply</button>
+      <span id="voiceStatus" class="voice-status"><span class="status-dot"></span> Mic idle</span>
+    </div>
+  </section>
+
+  <aside class="side-panel right-panel insights-panel">
+    <h2>Live Analysis</h2>
+    <div class="analysis-card">
+      <div class="analysis-row"><span>Emotion</span><strong id="sideEmotion">neutral</strong></div>
+      <div class="analysis-row"><span>Intent</span><strong id="sideIntent">support</strong></div>
+      <div class="analysis-row"><span>Mood</span><strong id="sideMood">5/10</strong></div>
+      <div class="analysis-row"><span>Risk Score</span><strong id="sideRiskScore">5/100</strong></div>
+      <div class="analysis-row"><span>Language</span><strong id="sideLanguage">hinglish</strong></div>
+      <div class="analysis-row"><span>Trigger</span><strong id="sideTriggers">none</strong></div>
+      <div class="analysis-row"><span>Tool</span><strong id="sideTool">supportive_chat</strong></div>
+      <div class="analysis-row"><span>Input</span><strong id="sideInputType">text</strong></div>
+    </div>
+
+    <h2>Connect Support</h2>
+    <div class="connect-mini-card">
+      <p>Need to talk to a real person? Open the call/v-call support page.</p>
+      <a class="primary-btn full" href="/connect">Call or V-Call Someone</a>
+      <div class="mini-emergency-row">
+        <a href="tel:112" class="ghost-btn danger-text">Call 112</a>
+        <a href="tel:14416" class="ghost-btn">Tele-MANAS</a>
+      </div>
+    </div>
+
+    <h2>AI Memory</h2>
+    <div class="memory-card">
+      <p id="memorySummary">Memory will update after a few messages.</p>
+      <button id="resetMemoryBtn" class="ghost-btn full" type="button">Reset Memory</button>
+    </div>
+
+    <h2>RAG Knowledge</h2>
+    <div class="knowledge-card">
+      <p id="knowledgeUsed">No knowledge source used yet.</p>
+    </div>
+
+    <h2>Coping Toolkit</h2>
+    <button class="tool-btn" data-prompt="Guide me through 5-4-3-2-1 grounding technique step by step.">Grounding 5-4-3-2-1</button>
+    <button class="tool-btn" data-prompt="Guide me through box breathing for anxiety in a calm voice.">Box Breathing</button>
+    <button class="tool-btn" data-prompt="Make a 25-minute study plan for my project stress.">Study Plan</button>
+    <button class="tool-btn" data-prompt="Give me a short positive affirmation and one small action for today.">Affirmation</button>
+    <button class="tool-btn danger" data-prompt="I feel unsafe and I might harm myself.">Crisis Safety Demo</button>
+
+    <div class="helpline-card">
+      <h4>India Emergency Help</h4>
+      <p><strong>Emergency:</strong> 112</p>
+      <p><strong>Tele-MANAS:</strong> 14416 / 1800-891-4416</p>
+      <p class="muted-small">Use immediate human help for urgent danger.</p>
+    </div>
+  </aside>
+</section>
+{% endblock %}

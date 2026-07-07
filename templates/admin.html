@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Admin · CalmMind AI{% endblock %}
+{% block content %}
+<section class="section-head">
+  <p class="eyebrow">Research / Demo Admin</p>
+  <h1>Admin Safety Dashboard</h1>
+  <p>Anonymous analytics for project evaluation. In real deployment, protect this page with role-based admin authentication.</p>
+</section>
+
+<section class="metric-grid dashboard-metrics admin-metrics">
+  <div><strong id="adminUsers">-</strong><span>Users</span></div>
+  <div><strong id="adminMessages">-</strong><span>Messages</span></div>
+  <div><strong id="adminRisk">-</strong><span>Total Risk Events</span></div>
+  <div><strong id="adminHighRisk">-</strong><span>High/Emergency</span></div>
+  <div><strong id="adminUnack">-</strong><span>Unacknowledged</span></div>
+  <div><strong id="adminCheckins">-</strong><span>Crisis Check-ins</span></div>
+  <div><strong id="adminVoice">-</strong><span>Voice Sessions</span></div>
+  <div><strong id="adminCalls">-</strong><span>Call Sessions</span></div>
+</section>
+
+<section class="grid-2 align-start">
+  <article class="panel">
+    <div class="panel-title-row"><h3>Risk Events</h3><button id="refreshAdminBtn" class="ghost-btn">Refresh</button></div>
+    <div id="riskList" class="list risk-admin-list"></div>
+  </article>
+  <article class="panel">
+    <h3>Safety Overview</h3>
+    <div class="analysis-card">
+      <div class="analysis-row"><span>Average mood</span><strong id="adminAvgMood">-</strong></div>
+      <div class="analysis-row"><span>Average risk</span><strong id="adminAvgRisk">-</strong></div>
+      <div class="analysis-row"><span>Safety plans</span><strong id="adminSafetyPlans">-</strong></div>
+      <div class="analysis-row"><span>Latest event</span><strong id="adminLatestRisk">-</strong></div>
+    </div>
+    <h3>Recent Crisis Check-ins</h3>
+    <div id="checkinList" class="list"></div>
+  </article>
+</section>
+{% endblock %}

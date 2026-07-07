@@ -1,0 +1,80 @@
+[
+  {
+    "title": "5-4-3-2-1 Grounding Technique",
+    "category": "panic_anxiety",
+    "keywords": ["anxiety", "panic", "grounding", "ghabrahat", "saans", "present"],
+    "content": "Notice 5 things you can see, 4 things you can touch, 3 sounds you can hear, 2 smells you can notice, and 1 slow breath. This helps bring attention back to the present moment."
+  },
+  {
+    "title": "Box Breathing",
+    "category": "panic_anxiety",
+    "keywords": ["breathing", "stress", "calm", "panic", "anxiety", "box"],
+    "content": "Breathe in for 4 seconds, hold for 4, breathe out for 4, hold for 4. Repeat 4 rounds slowly. Stop if uncomfortable and breathe naturally."
+  },
+  {
+    "title": "Study Stress Micro Plan",
+    "category": "study_stress",
+    "keywords": ["exam", "assignment", "study", "project", "deadline", "padhai", "viva"],
+    "content": "Write one small task, set a 25-minute timer, remove distractions, then take a 5-minute break. Repeat for 2 cycles before reviewing progress."
+  },
+  {
+    "title": "Deadline Overload Plan",
+    "category": "study_stress",
+    "keywords": ["deadline", "submission", "project", "presentation", "final year"],
+    "content": "List tasks as must-do, should-do, and later. Start with the smallest must-do task for 10 minutes to reduce avoidance and build momentum."
+  },
+  {
+    "title": "Sleep Hygiene Basics",
+    "category": "sleep_problem",
+    "keywords": ["sleep", "neend", "insomnia", "night", "late", "routine"],
+    "content": "Keep a fixed sleep time, avoid caffeine late evening, reduce bright screen exposure 30 minutes before bed, and use a short journaling brain-dump if thoughts are racing."
+  },
+  {
+    "title": "Panic First-Aid",
+    "category": "panic_anxiety",
+    "keywords": ["panic attack", "can't breathe", "cant breathe", "dil tez", "control nahi"],
+    "content": "Panic can feel dangerous, but it usually rises and falls. Sit down, loosen tight clothing, breathe naturally, name the current date and place, and contact help if symptoms feel medically urgent."
+  },
+  {
+    "title": "Relationship Stress Reflection",
+    "category": "relationship_issue",
+    "keywords": ["relationship", "breakup", "fight", "friend", "parents", "partner", "trust"],
+    "content": "Separate facts, feelings, and assumptions. Write what happened, what you felt, what you need, and one respectful boundary or conversation point."
+  },
+  {
+    "title": "Loneliness Support Step",
+    "category": "mental_health_support",
+    "keywords": ["lonely", "alone", "akela", "akeli", "ignored", "connection"],
+    "content": "Send one low-pressure message to a trusted person, join a small routine activity, or write a short journal entry naming one thing you need today."
+  },
+  {
+    "title": "Motivation Tiny Goal Method",
+    "category": "motivation",
+    "keywords": ["motivation", "lazy", "procrastinate", "focus", "discipline", "goal"],
+    "content": "Choose a task so small it feels almost easy. Start for two minutes. After starting, either continue or schedule the next tiny step."
+  },
+  {
+    "title": "Career Confusion Clarity Prompt",
+    "category": "career_confusion",
+    "keywords": ["career", "job", "placement", "future", "interview", "resume"],
+    "content": "Write three columns: skills you have, skills you want, and opportunities available this month. Pick one action: update resume, apply to one role, or practice one interview question."
+  },
+  {
+    "title": "Crisis Safety India",
+    "category": "crisis",
+    "keywords": ["suicide", "self harm", "emergency", "unsafe", "jeena nahi", "marna"],
+    "content": "If there is immediate danger, call 112 in India. For mental-health support, Tele-MANAS can be reached at 14416 or 1800-891-4416. Contact a trusted person and avoid staying alone."
+  },
+  {
+    "title": "Journaling Prompt",
+    "category": "journal_reflection",
+    "keywords": ["journal", "reflection", "gratitude", "diary"],
+    "content": "Write three short lines: What am I feeling? What triggered it? What is one kind action I can take for myself today?"
+  },
+  {
+    "title": "When To Seek Professional Help",
+    "category": "mental_health_support",
+    "keywords": ["doctor", "therapist", "professional", "help", "diagnosis", "treatment"],
+    "content": "Consider professional help if distress persists, affects sleep/work/studies, includes self-harm thoughts, panic symptoms, trauma, or feels unmanageable. AI support is not a substitute for care."
+  }
+]

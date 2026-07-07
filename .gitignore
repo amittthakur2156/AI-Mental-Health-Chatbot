@@ -1,0 +1,11 @@
+.env
+*.db
+*.sqlite3
+__pycache__/
+.pytest_cache/
+venv/
+instance/
+*.pyc
+.DS_Store
+.firebase/
+serviceAccountKey.json

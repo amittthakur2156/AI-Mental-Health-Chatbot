@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}CalmMind AI{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script defer src="{{ url_for('static', filename='js/app.js') }}"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="/" class="brand"><span class="logo">CM</span><span>CalmMind AI</span></a>
+    <nav>
+      <a href="/chat">Chat</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/journal">Journal</a>
+      <a href="/safety">Safety Plan</a>
+      <a href="/resources">Resources</a>
+      <a href="/connect">Call / V-Call</a>
+      <a href="/admin">Admin</a>
+    </nav>
+    <button id="themeToggle" class="ghost-btn" type="button">Theme</button>
+  </header>
+  <main class="page-shell">
+    {% block content %}{% endblock %}
+  </main>
+  <div id="toast" class="toast hidden"></div>
+</body>
+</html>

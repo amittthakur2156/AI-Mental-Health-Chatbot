@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}Call / V-Call Support · CalmMind AI{% endblock %}
+{% block content %}
+<section class="phase-banner final-banner">
+  <div>
+    <span class="eyebrow">Human Connection Facility</span>
+    <h1>Call or V-Call Support</h1>
+    <p>When a user wants to talk to someone, they can call emergency numbers, saved trusted contacts, or start a video support room.</p>
+  </div>
+  <div class="phase-actions">
+    <a class="secondary-btn" href="/chat">Back to Chat</a>
+    <a class="ghost-btn" href="/safety">Safety Plan</a>
+  </div>
+</section>
+
+<section class="grid two connect-grid">
+  <div class="card support-card urgent-support-card">
+    <h2>Immediate Help</h2>
+    <p class="muted">Use these if the user is unsafe, in immediate danger, or needs urgent human support.</p>
+    <div class="contact-actions">
+      <a class="primary-btn danger-bg" href="tel:112">Call Emergency 112</a>
+      <a class="secondary-btn" href="tel:14416">Call Tele-MANAS 14416</a>
+      <a class="ghost-btn" href="tel:18008914416">Call 1800-891-4416</a>
+    </div>
+    <div class="chat-notice">
+      <strong>Safety note:</strong> AI support is not an emergency service. If there is immediate danger, contact local emergency services or a trusted person now.
+    </div>
+  </div>
+
+  <div class="card support-card">
+    <h2>Conversation Language</h2>
+    <p class="muted">This language is used for chat, mic speech recognition, voice reply, and call demo language hints.</p>
+    <select id="connectLanguageSelect" class="wide-select">
+      <option value="auto">Auto Detect</option>
+      <option value="hinglish" selected>Hinglish</option>
+      <option value="hindi">Hindi</option>
+      <option value="english">English</option>
+      <option value="punjabi">Punjabi</option>
+      <option value="marathi">Marathi</option>
+      <option value="telugu">Telugu</option>
+      <option value="urdu">Urdu</option>
+      <option value="french">French</option>
+      <option value="chinese">Chinese</option>
+    </select>
+    <p id="connectLangHint" class="muted-small">Selected language saved locally.</p>
+  </div>
+</section>
+
+<section class="grid two connect-grid">
+  <div class="card support-card">
+    <div class="panel-title-row">
+      <div>
+        <h2>Trusted Contacts</h2>
+        <p class="muted">Save contacts that the user can call quickly when they need to talk.</p>
+      </div>
+    </div>
+
+    <div class="form-grid compact-form">
+      <input id="contactName" placeholder="Name e.g. Friend / Parent / Mentor" />
+      <input id="contactPhone" placeholder="Phone e.g. +919876543210" />
+      <input id="contactRelation" placeholder="Relation e.g. friend, parent, mentor" />
+      <input id="contactNotes" placeholder="Notes e.g. available after 6 PM" />
+      <label class="checkbox-row"><input id="contactPrimary" type="checkbox" /> Make primary contact</label>
+      <button id="saveContactBtn" class="primary-btn" type="button">Save Contact</button>
+    </div>
+
+    <div id="trustedContactList" class="contact-list">
+      <div class="empty-state">Loading contacts...</div>
+    </div>
+  </div>
+
+  <div class="card support-card">
+    <h2>Video Support Room</h2>
+    <p class="muted">Start a video room and share the link with a trusted person. Camera preview is local; the room opens in a new tab.</p>
+
+    <div class="video-preview-wrap">
+      <video id="localVideoPreview" playsinline muted></video>
+      <div id="videoPreviewEmpty" class="video-preview-empty">Camera preview off</div>
+    </div>
+
+    <div class="button-row wrap">
+      <button id="startCameraBtn" class="ghost-btn" type="button">Start Camera Preview</button>
+      <button id="stopCameraBtn" class="ghost-btn" type="button">Stop Camera</button>
+      <button id="createVideoRoomBtn" class="primary-btn" type="button">Create V-Call Room</button>
+    </div>
+
+    <div id="videoRoomBox" class="video-room-box hidden">
+      <h3>Room Ready</h3>
+      <p id="videoRoomUrl"></p>
+      <div class="button-row wrap">
+        <a id="openVideoRoomLink" href="#" target="_blank" rel="noopener" class="secondary-btn">Open V-Call</a>
+        <button id="copyVideoRoomBtn" class="ghost-btn" type="button">Copy Link</button>
+      </div>
+      <p class="muted-small">Send this link to the person you want to talk to.</p>
+    </div>
+
+    <h3>Recent V-Call Rooms</h3>
+    <div id="videoSessionList" class="contact-list compact-list"></div>
+  </div>
+</section>
+
+<section class="card support-card">
+  <h2>AI Phone Call Demo Setup</h2>
+  <p class="muted">For evaluator demo, connect Twilio webhook to your public URL. Then users can call your Twilio number and talk to CalmMind AI.</p>
+  <div class="code-card">
+    <code>POST https://your-ngrok-url/twilio/voice?language=hinglish</code>
+  </div>
+  <p class="muted-small">Language values: hinglish, hindi, english, punjabi, marathi, telugu, urdu, french, chinese. Twilio speech language support can vary by region/voice.</p>
+</section>
+{% endblock %}

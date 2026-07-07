@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}Advanced Dashboard · CalmMind AI{% endblock %}
+{% block content %}
+<section class="section-head dashboard-hero phase4-hero">
+  <div>
+    <p class="session-kicker">Phase 4 · Mood Intelligence</p>
+    <h1>Advanced Mood Analytics Dashboard</h1>
+    <p>Track mood trends, emotions, activity, risk patterns, streaks and AI wellness insights from text, voice and journal usage.</p>
+  </div>
+  <div class="dashboard-actions">
+    <label class="range-select">
+      <span>Range</span>
+      <select id="dashboardRange">
+        <option value="7">7 days</option>
+        <option value="30" selected>30 days</option>
+        <option value="90">90 days</option>
+      </select>
+    </label>
+    <button id="refreshDashboardBtn" class="ghost-btn" type="button">Refresh</button>
+    <a id="exportCsvLink" class="ghost-btn" href="/api/mood/export/csv">Export CSV</a>
+    <a id="exportJsonLink" class="primary-btn" href="/api/mood/export/json">Export JSON</a>
+  </div>
+</section>
+
+<section class="metric-grid dashboard-metrics advanced-metrics">
+  <div><strong id="avgMood">-</strong><span>Average Mood</span><small id="moodLabel">not enough data</small></div>
+  <div><strong id="periodMood">-</strong><span>Selected Range Avg</span><small id="periodLogs">0 logs</small></div>
+  <div><strong id="activeStreak">-</strong><span>Active Streak</span><small>chat/mood days</small></div>
+  <div><strong id="topEmotion">-</strong><span>Top Emotion</span><small id="topIntent">intent: -</small></div>
+  <div><strong id="chatCount">-</strong><span>User Messages</span><small id="sessionCountCard">0 sessions</small></div>
+  <div><strong id="voiceCount">-</strong><span>Voice Sessions</span><small>saved transcripts</small></div>
+  <div><strong id="riskEvents">-</strong><span>Risk Events</span><small id="highRiskEvents">0 high risk</small></div>
+  <div><strong id="journalCount">-</strong><span>Journals</span><small>reflection entries</small></div>
+</section>
+
+<section class="dashboard-layout">
+  <article class="panel chart-card wide-card">
+    <div class="chart-head">
+      <div>
+        <h3>Mood Trend</h3>
+        <p>Daily average mood score from chat, voice and journal activity.</p>
+      </div>
+      <span id="trendDirection" class="mini-badge">loading</span>
+    </div>
+    <canvas id="moodChart"></canvas>
+  </article>
+
+  <article class="panel chart-card">
+    <div class="chart-head"><h3>Emotion Distribution</h3><span class="mini-badge">period</span></div>
+    <canvas id="emotionChart"></canvas>
+    <div id="emotionList" class="list compact-list"></div>
+  </article>
+
+  <article class="panel chart-card">
+    <div class="chart-head"><h3>Activity Breakdown</h3><span class="mini-badge">chat · voice · journal</span></div>
+    <canvas id="activityChart"></canvas>
+  </article>
+
+  <article class="panel chart-card">
+    <div class="chart-head"><h3>Risk Monitoring</h3><span class="mini-badge risk">safety</span></div>
+    <canvas id="riskChart"></canvas>
+    <p class="muted-small">Only risk metadata is shown here for privacy. Use Admin for safety audit logs.</p>
+  </article>
+
+  <article class="panel wide-card">
+    <div class="chart-head">
+      <div><h3>Mood Calendar Heatmap</h3><p>Recent check-in days. Darker/stronger cards mean more mood activity.</p></div>
+      <span class="mini-badge">90 days</span>
+    </div>
+    <div id="moodHeatmap" class="mood-heatmap"></div>
+  </article>
+
+  <article class="panel insights-card wide-card">
+    <div class="chart-head">
+      <div><h3>AI Weekly Wellness Report</h3><p>Automatically generated from your mood, emotion, activity and safety signals.</p></div>
+      <button id="copyReportBtn" class="ghost-btn" type="button">Copy Report</button>
+    </div>
+    <div id="weeklyReport" class="weekly-report">
+      <p class="muted-small">Loading weekly report...</p>
+    </div>
+  </article>
+</section>
+{% endblock %}

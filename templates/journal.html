@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Journal · CalmMind AI{% endblock %}
+{% block content %}
+<section class="grid-2 align-start">
+  <article class="panel">
+    <h1>Daily Mood Journal</h1>
+    <p>Write what you feel. CalmMind creates a short reflection summary and updates your mood dashboard.</p>
+    <label>Title</label>
+    <input id="journalTitle" placeholder="Daily Reflection" />
+    <label>What happened today?</label>
+    <textarea id="journalContent" rows="8" placeholder="Write your thoughts..."></textarea>
+    <label>One gratitude point</label>
+    <input id="journalGratitude" placeholder="I am grateful for..." />
+    <button id="saveJournalBtn" class="primary-btn">Save Journal</button>
+    <div id="journalSummary" class="result-box hidden"></div>
+  </article>
+  <article class="panel">
+    <h2>Previous Journals</h2>
+    <div id="journalList" class="list"></div>
+  </article>
+</section>
+{% endblock %}
