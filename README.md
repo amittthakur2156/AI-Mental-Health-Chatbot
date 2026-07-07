@@ -228,37 +228,29 @@ Dashboard & History
 
 # 📸 Screenshots
 
-## Home
+## 🏠 Home
 
 ![Home](screenshots/Home.jpeg)
 
----
-
-## Chat
+## 💬 Chat
 
 ![Chat](screenshots/Theme.jpeg)
 
----
-
-## Dashboard
+## 📊 Dashboard
 
 ![Dashboard](screenshots/Dashboard.jpeg)
 
----
-
-## History
+## 📜 History
 
 ![History](screenshots/History.jpeg)
 
----
-
-## Voice
+## 🎤 Voice
 
 ![Voice](screenshots/Voice_Input_Output.jpeg)
 
----
+## ☎️ Helpline
 
-## Helpline
+![Helpline](screenshots/Helpline.jpeg)
 
 ![Helpline](screenshots/Helpline.jpeg)
 
