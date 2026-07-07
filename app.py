@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit
 from flask_sock import Sock
-
 from config import config
 from services.db_service import init_db
 from services.ai_service import build_ai_reply
